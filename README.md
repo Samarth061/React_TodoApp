@@ -1,50 +1,64 @@
-# React + TypeScript + Vite
+# To-Do App (React + TypeScript + TailwindCSS)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a To-Do App built using React, TypeScript, and TailwindCSS, bootstrapped with Vite. The app helps you manage tasks while learning the fundamentals of React and experimenting with modern tools.
 
-Currently, two official plugins are available:
+## 🚀 Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+• React: UI library.
 
-## Expanding the ESLint configuration
+• TypeScript: Type-safe JavaScript.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+• TailwindCSS: Utility-first CSS framework.
 
-- Configure the top-level `parserOptions` property like this:
+• Vite: Fast development server.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## 🧠 Purpose
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+• Learn React basics: components, state, props.
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+• Explore TypeScript integration with React.
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+• Use TailwindCSS for responsive UI design.
+
+• Gain experience with a Vite-powered React project.
+
+## Features
+
+• Add, mark, and delete tasks.
+
+• Responsive design using TailwindCSS.
+
+## 💻 Getting Started
+
+• Clone the repo:
+
+git clone https://github.com/Samarth061/react_TodoApp.git
+cd my-todo-app
+
+• Install dependencies:
+
+npm install
+
+• Start the dev server:
+
+npm run dev
+
+• Open the app at http://localhost:5173/.
+
+## 📦 Scripts
+
+• npm run dev: Start the dev server.
+
+• npm run build: Build for production.
+
+• npm run preview: Preview production build.
+
+• npm run lint: Lint the code.
+
+## 📧 Contact
+
+For questions or suggestions:
+
+• GitHub: Samarth061
+
+•Email: samarthdshah12@gmail.com
