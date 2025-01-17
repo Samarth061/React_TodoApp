@@ -33,6 +33,7 @@ This is a To-Do App built using React, TypeScript, and TailwindCSS, bootstrapped
 • Clone the repo:
 
 git clone https://github.com/Samarth061/react_TodoApp.git
+
 cd my-todo-app
 
 • Install dependencies:
@@ -47,13 +48,13 @@ npm run dev
 
 ## 📦 Scripts
 
-• npm run dev: Start the dev server.
+`npm run dev`: Start the dev server.
 
-• npm run build: Build for production.
+`npm run build`: Build for production.
 
-• npm run preview: Preview production build.
+`npm run preview`: Preview production build.
 
-• npm run lint: Lint the code.
+`npm run lint`: Lint the code.
 
 ## 📧 Contact
 
@@ -61,4 +62,4 @@ For questions or suggestions:
 
 • GitHub: Samarth061
 
-•Email: samarthdshah12@gmail.com
+• Email: samarthdshah12@gmail.com
