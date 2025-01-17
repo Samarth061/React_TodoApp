@@ -1,8 +1,12 @@
 import Button from "./Button";
 
-export default function AddTodoForm() {
+export default function AddTodoForm({ todos, setTodos }) {
   return (
-    <form>
+    <form
+      onSubmit={(e) => {
+        e.preventDefault();
+      }}
+    >
       <h2 className="font-medium text-[#231d15]"> Add a todo</h2>
       <input
         type="text"

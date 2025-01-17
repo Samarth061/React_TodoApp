@@ -1,7 +1,10 @@
-export default function Counter() {
+import { useState } from "react";
+
+export default function Counter({ todos }) {
   return (
     <p>
-      <b>0</b> / 0 todos completed
+      <b>{todos.filter((t) => t.isCompleted).length}</b> / {todos.length} todos
+      completed
     </p>
   );
 }
