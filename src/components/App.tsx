@@ -6,28 +6,38 @@ import Sidebar from "./Sidebar";
 import TodoList from "./TodoList";
 
 function App() {
-  const [todos, setTodos] = useState([
-    {
-      id: 1,
-      text: "buy groceries",
-      isCompleted: false,
-    },
-    {
-      id: 2,
-      text: "walk the dog",
-      isCompleted: true,
-    },
-    {
-      id: 3,
-      text: "buy groceries",
-      isCompleted: false,
-    },
-    {
-      id: 4,
-      text: "study for exam",
-      isCompleted: true,
-    },
-  ]);
+  const [todos, setTodos] = useState([]);
+
+  const handleAddTodo = (todoText) => {
+    if (todos.length >= 3) {
+      alert("Log in to add more todos");
+      return;
+    } else {
+      setTodos((prev) => [
+        ...prev,
+        {
+          id: prev.length + 1,
+          text: todoText,
+          isCompleted: false,
+        },
+      ]);
+    }
+  };
+
+  const handleToggleTodo = (id) => {
+    setTodos(
+      todos.map((t) => {
+        if (t.id === id) {
+          return { ...t, isCompleted: !t.isCompleted };
+        }
+        return t;
+      })
+    );
+  };
+
+  const handleDeleteTodo = (id) => {
+    setTodos((prev) => prev.filter((todo) => todo.id !== id));
+  };
 
   return (
     <div className="flex flex-col justify-center items-center font-sans bg-[#f1d4b3] min-h-screen">
@@ -38,9 +48,13 @@ function App() {
       shadow-[0_4px_4px_rgba(0,0,0,0.08)] grid grid-cols-[7fr_4fr] grid-rows-[59px_1fr]
       overflow-hidden"
       >
-        <Header todos={todos} setTodos={setTodos} />
-        <TodoList todos={todos} setTodos={setTodos} />
-        <Sidebar />
+        <Header todos={todos} />
+        <TodoList
+          todos={todos}
+          handleToggleTodo={handleToggleTodo}
+          handleDeleteTodo={handleDeleteTodo}
+        />
+        <Sidebar todos={todos} handleAddTodo={handleAddTodo} />
       </main>
       <Footer />
     </div>

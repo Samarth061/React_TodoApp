@@ -1,9 +1,18 @@
 import { useState } from "react";
 import DeleteButton from "./DeleteButton";
 
-export default function TodoList({ todos, setTodos }) {
+export default function TodoList({
+  todos,
+  handleToggleTodo,
+  handleDeleteTodo,
+}) {
   return (
     <ul>
+      {todos.length === 0 && (
+        <li className="h-full flex justify-center items-center font-semibold">
+          Start by adding a todo
+        </li>
+      )}
       {todos.map((todo) => (
         <li
           key={todo.id}
@@ -11,14 +20,7 @@ export default function TodoList({ todos, setTodos }) {
           h-[50px] text-[14px] cursor-pointer border-b 
         border-black/[8%]"
           onClick={() => {
-            setTodos(
-              todos.map((t) => {
-                if (t.id === todo.id) {
-                  return { ...t, isCompleted: !t.isCompleted };
-                }
-                return t;
-              })
-            );
+            handleToggleTodo(todo.id);
           }}
         >
           <span
@@ -26,7 +28,7 @@ export default function TodoList({ todos, setTodos }) {
           >
             {todo.text}
           </span>{" "}
-          <DeleteButton id={todo.id} setTodos={setTodos} />
+          <DeleteButton id={todo.id} handleDeleteTodo={handleDeleteTodo} />
         </li>
       ))}
     </ul>
