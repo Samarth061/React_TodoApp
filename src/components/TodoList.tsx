@@ -1,11 +1,16 @@
-import { useState } from "react";
+import { Todo } from "./App";
 import DeleteButton from "./DeleteButton";
 
+type TodoListProps = {
+  todos: Todo[];
+  handleDeleteTodo: (id: number) => void;
+  handleToggleTodo: (id: number) => void;
+};
 export default function TodoList({
   todos,
   handleToggleTodo,
   handleDeleteTodo,
-}) {
+}: TodoListProps) {
   return (
     <ul>
       {todos.length === 0 && (

@@ -1,10 +1,15 @@
-import { useState } from "react";
+type CounterProps = {
+  totaNumberOfTodos: number;
+  totalNumberOfCompletedTodos: number;
+};
 
-export default function Counter({ todos }) {
+export default function Counter({
+  totaNumberOfTodos,
+  totalNumberOfCompletedTodos,
+}: CounterProps) {
   return (
     <p>
-      <b>{todos.filter((t) => t.isCompleted).length}</b> / {todos.length} todos
-      completed
+      <b>{totalNumberOfCompletedTodos}</b> / {totaNumberOfTodos} todos completed
     </p>
   );
 }

@@ -5,10 +5,22 @@ import Header from "./Header";
 import Sidebar from "./Sidebar";
 import TodoList from "./TodoList";
 
-function App() {
-  const [todos, setTodos] = useState([]);
+export type Todo = {
+  id: number;
+  text: string;
+  isCompleted: boolean;
+};
 
-  const handleAddTodo = (todoText) => {
+function App() {
+  //state
+  const [todos, setTodos] = useState<Todo[]>([]);
+
+  //derived state
+  const totaNumberOfTodos = todos.length;
+  const totalNumberOfCompletedTodos = todos.filter((t) => t.isCompleted).length;
+
+  //event handlers
+  const handleAddTodo = (todoText: string) => {
     if (todos.length >= 3) {
       alert("Log in to add more todos");
       return;
@@ -24,7 +36,7 @@ function App() {
     }
   };
 
-  const handleToggleTodo = (id) => {
+  const handleToggleTodo = (id: number) => {
     setTodos(
       todos.map((t) => {
         if (t.id === id) {
@@ -35,7 +47,7 @@ function App() {
     );
   };
 
-  const handleDeleteTodo = (id) => {
+  const handleDeleteTodo = (id: number) => {
     setTodos((prev) => prev.filter((todo) => todo.id !== id));
   };
 
@@ -48,13 +60,16 @@ function App() {
       shadow-[0_4px_4px_rgba(0,0,0,0.08)] grid grid-cols-[7fr_4fr] grid-rows-[59px_1fr]
       overflow-hidden"
       >
-        <Header todos={todos} />
+        <Header
+          totaNumberOfTodos={totaNumberOfTodos}
+          totalNumberOfCompletedTodos={totalNumberOfCompletedTodos}
+        />
         <TodoList
           todos={todos}
           handleToggleTodo={handleToggleTodo}
           handleDeleteTodo={handleDeleteTodo}
         />
-        <Sidebar todos={todos} handleAddTodo={handleAddTodo} />
+        <Sidebar handleAddTodo={handleAddTodo} />
       </main>
       <Footer />
     </div>
