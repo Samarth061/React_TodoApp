@@ -1,18 +1,16 @@
-import { useState } from "react";
 import Button from "./Button";
+import { useTodosContext } from "../lib/hooks";
+import { useState } from "react";
 
-type AddTodoFormProps = {
-  handleAddTodo: (todoText: string) => void;
-};
-
-export default function AddTodoForm(props: AddTodoFormProps) {
+export default function AddTodoForm() {
   const [todoText, setTodoText] = useState("");
+  const { handleAddTodo } = useTodosContext();
 
   return (
     <form
       onSubmit={(e) => {
         e.preventDefault();
-        props.handleAddTodo(todoText);
+        handleAddTodo(todoText);
         setTodoText("");
       }}
     >
